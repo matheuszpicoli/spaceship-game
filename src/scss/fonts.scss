@@ -1,0 +1,8 @@
+$fonts: ("RethinkSans Bold", "RethinkSans Regular", "RethinkSans Semi Bold");
+
+@each $font in $fonts {
+	@font-face {
+		font-family: $font;
+		src: url("/src/fonts/#{unquote($font)}.ttf");
+	}
+}

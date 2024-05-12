@@ -1,0 +1,401 @@
+@font-face {
+	font-family: "RethinkSans Bold";
+	src: url("/src/fonts/RethinkSans Bold.ttf");
+}
+
+@font-face {
+	font-family: "RethinkSans Regular";
+	src: url("/src/fonts/RethinkSans Regular.ttf");
+}
+
+@font-face {
+	font-family: "RethinkSans Semi Bold";
+	src: url("/src/fonts/RethinkSans Semi Bold.ttf");
+}
+
+* {
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	border: none;
+	box-sizing: border-box;
+	color: #00aaff;
+	cursor: default;
+	font-family: "RethinkSans Regular", sans-serif;
+	font-size: 1.3rem;
+	margin: 0;
+	outline: none;
+	padding: 0;
+}
+
+:is(#aircraft, .enemy) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	bottom: 15px;
+	height: 70px;
+	position: absolute;
+	width: 70px;
+	z-index: 2;
+}
+
+#aircraft {
+	-o-transition: 80ms;
+	transition: 80ms;
+	background-image: url(../img/aircraft.png);
+}
+
+.enemy {
+	-moz-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+	background-image: url(../img/enemyAircraft.png);
+}
+
+.enemy > .enemy-life-displayed {
+	-ms-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5019607843));
+	-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5019607843));
+	filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5019607843));
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+	font-family: "RethinkSans Bold", sans-serif;
+	inset: 0;
+	position: fixed;
+	text-shadow: -3px 0 #000000, 0 3px #000000, 3px 0 #000000, 0 -3px #000000;
+}
+
+.shot {
+	background-color: #ff0000;
+	border-radius: 50%;
+	border: 2px inset rgba(0, 0, 0, 0.5019607843);
+	bottom: 70px;
+	height: 10px;
+	position: absolute;
+	width: 10px;
+}
+
+:is(#start-game, .end-game-interface, .save-button, .settings) {
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	border-radius: 1em;
+	font-family: "RethinkSans Semi Bold", sans-serif;
+	left: 50%;
+	padding: 0.5em;
+	pointer-events: all;
+	position: absolute;
+	z-index: 3;
+}
+
+:is(#start-game, .end-game-interface, .save-button, .settings):hover:not(.settings) {
+	border: 5px inset #0051ff;
+	cursor: pointer;
+	font-family: "RethinkSans Bold", sans-serif;
+	opacity: 0.8;
+	transition: 300ms;
+}
+
+:is(#start-game, .end-game-interface, .save-button, .settings):active:not(.settings) {
+	opacity: 1;
+}
+
+#start-game {
+	top: 50%;
+}
+
+.settings {
+	top: 50%;
+	width: 50vw;
+}
+
+.settings input[type=radio] {
+	accent-color: currentColor;
+	cursor: pointer;
+	display: inline-block;
+	height: 0.7em;
+	margin: 5px 10px;
+	padding: 5px;
+	vertical-align: middle;
+	width: 1em;
+}
+
+.settings input[type=radio] ~ label {
+	font-size: 0.7em;
+	padding: 0 0.3em;
+	position: relative;
+}
+
+.settings::before {
+	content: "Dificuldade";
+	color: #ffffff;
+	display: block;
+	margin-bottom: 30px;
+}
+
+.settings .explanatory-text {
+	color: #ffffff;
+	font-size: 0.6em;
+	margin: 15px 0;
+}
+
+.settings .save-button {
+	inset: 100%;
+	margin: 0 30vw;
+	position: absolute;
+}
+
+.end-game-interface {
+	display: block;
+	top: 50%;
+}
+
+.game-over-text {
+	color: #ffffff;
+	bottom: 1.5em;
+	display: flex;
+	font-size: 1em;
+	justify-content: center;
+	position: fixed;
+}
+
+@-moz-keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+#main-menu {
+	align-items: center;
+	display: flex;
+	height: 20vh;
+	justify-content: space-between;
+	width: 80vw;
+}
+
+.swal-modal {
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	box-shadow: 0 8px 32px 0 rgba(0, 170, 255, 0.368627451);
+	-webkit-box-shadow: 0 8px 32px 0 rgba(0, 170, 255, 0.368627451);
+	-moz-box-shadow: 0 8px 32px 0 rgba(0, 170, 255, 0.368627451);
+	background: transparent;
+	border-radius: 1em;
+}
+
+.swal-modal .swal-text {
+	color: #ffffff;
+	text-align: center;
+	font-family: "RethinkSans Regular", sans-serif;
+}
+
+.swal-modal .swal-title {
+	color: #00aaff;
+}
+
+.swal-modal :where(.swal-title, .swal-button) {
+	font-family: "RethinkSans Bold", sans-serif;
+}
+
+.swal-modal .swal-button {
+	background-color: #00aaff;
+	border-radius: 1em;
+}
+
+.swal-modal .swal-button:hover {
+	background-color: #00aaff;
+	opacity: 0.8;
+	transition: 300ms;
+}
+
+#particles-js {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+#scenario {
+	background: -moz-linear-gradient(to top, #01143d 20%, #121212 80%);
+	background: -ms-linear-gradient(to top, #01143d 20%, #121212 80%);
+	background: -o-linear-gradient(to top, #01143d 20%, #121212 80%);
+	background: -webkit-gradient(to top, #01143d 20%, #121212 80%);
+	background: -webkit-linear-gradient(to top, #01143d 20%, #121212 80%);
+	background: linear-gradient(to top, #01143d 20%, #121212 80%);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	width: 100vw;
+}
+
+#name-of-the-game {
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+	font-family: "RethinkSans Bold", sans-serif;
+	font-size: 2em;
+	left: 50%;
+	position: absolute;
+	text-shadow: 1px -1px #00aaff, -1px 1px #00aaff, 1px 1px #00aaff, -1px -1px #00aaff, 3px 3px 8px #00aaff;
+	top: 35%;
+	z-index: 2;
+}
+
+#name-of-the-game::before {
+	content: "MP ";
+	color: #00aaff;
+	text-shadow: 1px -1px #ffffff, -1px 1px #ffffff, 1px 1px #ffffff, -1px -1px #ffffff, 3px 3px 8px #ffffff;
+}
+
+.paused {
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: "RethinkSans Bold", sans-serif;
+	font-size: 3em;
+	left: 50%;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+}
+
+.paused::after {
+	content: "Esc";
+	color: #ffffff;
+	display: block;
+	font-size: 0.5em;
+	text-align: center;
+}
+
+@-moz-keyframes damage {
+	from {
+		border: none;
+	}
+
+	to {
+		border-bottom: 4px solid #ff0000;
+	}
+}
+
+@-webkit-keyframes damage {
+	from {
+		border: none;
+	}
+
+	to {
+		border-bottom: 4px solid #ff0000;
+	}
+}
+
+@keyframes damage {
+	from {
+		border: none;
+	}
+
+	to {
+		border-bottom: 4px solid #ff0000;
+	}
+}
+
+@-moz-keyframes pointAcquired {
+	0% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+
+	50% {
+		color: #ffffff;
+		opacity: 0.1;
+	}
+
+	100% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+}
+
+@-webkit-keyframes pointAcquired {
+	0% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+
+	50% {
+		color: #ffffff;
+		opacity: 0.1;
+	}
+
+	100% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+}
+
+@keyframes pointAcquired {
+	0% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+
+	50% {
+		color: #ffffff;
+		opacity: 0.1;
+	}
+
+	100% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+}

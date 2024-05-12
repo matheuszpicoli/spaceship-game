@@ -1,0 +1,76 @@
+@import "./mixins.scss";
+
+$color1: #01143d;
+$color2: #121212;
+$white: #ffffff;
+$blue: #00aaff;
+$red: #ff0000;
+$blue-shadow:
+	1px -1px $blue,
+	-1px 1px $blue,
+	1px 1px $blue,
+	-1px -1px $blue,
+	3px 3px 8px $blue;
+$white-shadow:
+	1px -1px $white,
+	-1px 1px $white,
+	1px 1px $white,
+	-1px -1px $white,
+	3px 3px 8px $white;
+$center: translate(-50%, -50%);
+
+#scenario {
+	@include gradient($color1, $color2);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	width: 100vw;
+}
+
+#name-of-the-game {
+	@include transform($center);
+	color: $white;
+	font-family: "RethinkSans Bold", sans-serif;
+	font-size: 2em;
+	left: 50%;
+	position: absolute;
+	text-shadow: $blue-shadow;
+	top: 35%;
+	z-index: 2;
+
+	&::before {
+		content: "MP ";
+		color: $blue;
+		text-shadow: $white-shadow;
+	}
+}
+
+.paused {
+	@include transform($center);
+	font-family: "RethinkSans Bold", sans-serif;
+	font-size: 3em;
+	left: 50%;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+
+	&::after {
+		content: "Esc";
+		color: $white;
+		display: block;
+		font-size: 0.5em;
+		text-align: center;
+	}
+}
+
+@include keyframes(damage) {
+	from {
+		border: none;
+	}
+	to {
+		border-bottom: 4px solid $red;
+	}
+}

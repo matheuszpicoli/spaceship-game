@@ -1,0 +1,18 @@
+{
+	"name": "spaceshipgame",
+	"version": "1.0.0",
+	"description": "MP SpaceShip",
+	"main": "./src/public/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "npm start"
+	},
+	"keywords": [],
+	"author": "Matheus Zanela Picoli",
+	"license": "ISC",
+	"devDependencies": {
+		"gulp": "^5.0.0",
+		"gulp-sass": "^5.1.0",
+		"sass": "^1.75.0"
+	}
+}

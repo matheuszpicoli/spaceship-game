@@ -1,0 +1,64 @@
+@mixin transform($value) {
+	-moz-transform: $value;
+	-ms-transform: $value;
+	-o-transform: $value;
+	-webkit-transform: $value;
+	transform: $value;
+}
+
+@mixin gradient($property1, $property2) {
+	$params:
+		to top,
+		$property1 20%,
+		$property2 80%;
+
+	background: -moz-linear-gradient($params);
+	background: -ms-linear-gradient($params);
+	background: -o-linear-gradient($params);
+	background: -webkit-gradient($params);
+	background: -webkit-linear-gradient($params);
+	background: linear-gradient($params);
+}
+
+@mixin user-select($property) {
+	-moz-user-select: $property;
+	-ms-user-select: $property;
+	-webkit-user-select: $property;
+	user-select: $property;
+}
+
+@mixin transition($property) {
+	-o-transition: $property;
+	transition: $property;
+}
+
+@mixin filter($property) {
+	-ms-filter: $property;
+	-webkit-filter: $property;
+	filter: $property;
+}
+
+@mixin backdrop-filter($property) {
+	backdrop-filter: $property;
+	-webkit-backdrop-filter: $property;
+}
+
+@mixin box-shadow($property) {
+	box-shadow: $property;
+	-webkit-box-shadow: $property;
+	-moz-box-shadow: $property;
+}
+
+@mixin keyframes($animation) {
+	@-moz-keyframes #{$animation} {
+		@content;
+	}
+
+	@-webkit-keyframes #{$animation} {
+		@content;
+	}
+
+	@keyframes #{$animation} {
+		@content;
+	}
+}

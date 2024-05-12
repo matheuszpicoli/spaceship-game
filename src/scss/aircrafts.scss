@@ -1,0 +1,49 @@
+@import "./mixins.scss";
+
+$black: #000000;
+$black-with-transparency: #00000080;
+$black-shadow:
+	-3px 0 $black,
+	0 3px $black,
+	3px 0 $black,
+	0 -3px $black;
+
+:is(#aircraft, .enemy) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	bottom: 15px;
+	height: 70px;
+	position: absolute;
+	width: 70px;
+	z-index: 2;
+}
+
+#aircraft {
+	@include transition(80ms);
+	background-image: url(../img/aircraft.png);
+}
+
+.enemy {
+	@include transform(rotate(135deg));
+	background-image: url(../img/enemyAircraft.png);
+
+	& > .enemy-life-displayed {
+		@include filter(drop-shadow(3px 3px 3px $black-with-transparency));
+		@include transform(rotate(-135deg));
+		font-family: "RethinkSans Bold", sans-serif;
+		inset: 0;
+		position: fixed;
+		text-shadow: $black-shadow;
+	}
+}
+
+.shot {
+	background-color: #ff0000;
+	border-radius: 50%;
+	border: 2px inset $black-with-transparency;
+	bottom: 70px;
+	height: 10px;
+	position: absolute;
+	width: 10px;
+}

@@ -1,0 +1,16 @@
+@import "mixins.scss";
+
+@include keyframes(pointAcquired) {
+	0% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+	50% {
+		color: #ffffff;
+		opacity: 0.1;
+	}
+	100% {
+		color: currentColor;
+		font-size: 1.5em;
+	}
+}

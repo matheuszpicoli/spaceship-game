@@ -1,0 +1,35 @@
+@import "./mixins.scss";
+
+$blue: #00aaff;
+
+.swal-modal {
+	@include backdrop-filter(blur(13.5px));
+	@include box-shadow(0 8px 32px 0 #00aaff5e);
+	background: transparent;
+	border-radius: 1em;
+
+	.swal-text {
+		color: #ffffff;
+		text-align: center;
+		font-family: "RethinkSans Regular", sans-serif;
+	}
+
+	.swal-title {
+		color: $blue;
+	}
+
+	:where(.swal-title, .swal-button) {
+		font-family: "RethinkSans Bold", sans-serif;
+	}
+
+	.swal-button {
+		background-color: $blue;
+		border-radius: 1em;
+
+		&:hover {
+			background-color: $blue;
+			opacity: 0.8;
+			transition: 300ms;
+		}
+	}
+}

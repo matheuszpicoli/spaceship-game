@@ -1,0 +1,85 @@
+@import "./mixins.scss";
+
+$white: #ffffff;
+
+:is(#start-game, .end-game-interface, .save-button, .settings) {
+	@include transform(translate(-50%, -50%));
+	border-radius: 1em;
+	font-family: "RethinkSans Semi Bold", sans-serif;
+	left: 50%;
+	padding: 0.5em;
+	pointer-events: all;
+	position: absolute;
+	z-index: 3;
+
+	&:hover:not(.settings) {
+		border: 5px inset #0051ff;
+		cursor: pointer;
+		font-family: "RethinkSans Bold", sans-serif;
+		opacity: 0.8;
+		transition: 300ms;
+	}
+
+	&:active:not(.settings) {
+		opacity: 1;
+	}
+}
+
+#start-game {
+	top: 50%;
+}
+
+.settings {
+	top: 50%;
+	width: 50vw;
+
+	input[type="radio"] {
+		accent-color: currentColor;
+		cursor: pointer;
+		display: inline-block;
+		height: 0.7em;
+		margin: 5px 10px;
+		padding: 5px;
+		vertical-align: middle;
+		width: 1em;
+
+		& ~ label {
+			font-size: 0.7em;
+			padding: 0 0.3em;
+			position: relative;
+		}
+	}
+
+	&::before {
+		content: "Dificuldade";
+		color: $white;
+		display: block;
+		margin-bottom: 30px;
+	}
+
+	.explanatory-text {
+		color: $white;
+		font-size: 0.6em;
+		margin: 15px 0;
+	}
+
+	.save-button {
+		inset: 100%;
+		margin: 0 30vw;
+		position: absolute;
+	}
+}
+
+.end-game-interface {
+	display: block;
+	top: 50%;
+}
+
+.game-over-text {
+	color: $white;
+	bottom: 1.5em;
+	display: flex;
+	font-size: 1em;
+	justify-content: center;
+	position: fixed;
+}
