@@ -440,7 +440,7 @@ const gameOptions = () => {
 }
 
 const playGame = () => {
-	(function PlayerShootingOrNot(yes = "keydown", no = "keyup") {
+	(function playerShootingOrNot(yes = "keydown", no = "keyup") {
 		document.addEventListener(yes, keyboard => {
 			if (keyboard.code === "Space") isShooting = true
 		})
@@ -451,7 +451,7 @@ const playGame = () => {
 
 				const recharge = document.createElement("audio")
 				recharge.setAttribute("src", "/src/audio/recharge.mp3")
-
+				recharge.currentTime = 0
 				setTimeout(() => recharge.play(), 800)
 
 				recharge.addEventListener("ended", () => recharge.remove())
