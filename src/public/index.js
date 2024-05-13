@@ -9,9 +9,6 @@ const score = document.getElementById("score")
 const startGame = document.getElementById("start-game")
 
 const soundtrack = new Audio("/src/audio/soundtrack.mp3")
-soundtrack.volume = 0.25
-soundtrack.loop = true
-soundtrack.play()
 
 const scenarioWidth = scenario.offsetWidth
 const scenarioHeight = scenario.offsetHeight
@@ -473,7 +470,7 @@ const playGame = () => {
 	shootEvent = setInterval(shoot, 10)
 
 	soundtrack.loop = true
-	soundtrack.volume = 0.5
+	soundtrack.volume = 0.25
 	soundtrack.play()
 }
 
