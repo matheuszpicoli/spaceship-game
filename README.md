@@ -1,29 +1,29 @@
-# MP SpaceShip 🚀
+# MP Spaceship 🚀
 
-### Project link running on Vercel: https://mp-spaceship-game.vercel.app/
+### Link do projeto rodando na Vercel: https://mp-spaceship-game.vercel.app/
 
 <br>
 
-**MP SpaceShip** was the first project I actually carried out, it's one of those little ship games where you obviously control a ship and your objective is to eliminate your opponents.
+**MP SpaceShip** foi o primeiro projeto que realizei, é um daqueles joguinhos de nave onde você obviamente controla uma nave e seu objetivo é eliminar seus oponentes.
 
-Your ship is the blue ship, you can control it with **W**, **S**, **A** and **D** or with the **keyboard arrows**. Before starting the game, we have 3 difficulty levels that we can choose, namely: **Easy**, **Medium** and **Hard**.
+Sua nave é a nave azul, você pode controlá-la com **W**, **S**, **A** e **D** ou com as **setinhas do teclado**, não é possível jogar esse jogo pelo celular, ao menos que você conecte um teclado nele. Antes de iniciar o jogo, temos 3 níveis de dificuldade que podemos escolher, sendo eles: **Fácil**, **Médio** e **Difícil**.
 
-The entire game runs on top of a single **HTML**, it does not have any type of route to other files, everything is manipulated and created directly in the DOM.
+Todo o jogo roda em cima de um único **HTML**, não possui nenhum tipo de rota para outros arquivos, tudo é manipulado e criado diretamente na DOM.
 
-#### I will explain the game based on Normal difficulty, where the variables have their default values, let's say:
+#### Vou explicar o jogo baseado na dificuldade Normal, onde as variáveis ​​possuem seus valores padrão:
 
-I created an environment where there is a certain similarity with space, I thought about creating a .SCSS file to animate the scene but I used **particles.js** for that, it helped me create the "stars" that keep walking randomly around the scene.
+Criei um ambiente onde há uma certa semelhança com o espaço, pensei em criar um arquivo .SCSS para animar a cena mas usei **particles.js** para isso, essa lib me ajudou a criar as "estrelas" que ficam andando aleatoriamente ao redor do cenário.
 
-You have **100%** of life and with each damage you take you lose **5%** of it until you reach **0%** where the game over is executed, the background music stops and a button appears to reload the game. When you do this, your last played difficulty is saved and you can play with it again or not. The default difficulty value when entering for the first time is normal, it is not possible to play the game without choosing a difficulty, but, if you still manage to remove the input value, Promise will fall into reject and it will force you to choose a difficulty in the same way.
+Você tem **100%** de vida e a cada dano que você sofre você perde **5%** dela até chegar a **0%** onde o game over é executado, a música de fundo para e um botão aparece para recarregar o jogo. Ao fazer isso, sua última dificuldade jogada é salva e você pode jogar novamente ou não. O valor de dificuldade padrão ao entrar pela primeira vez é normal, não é possível jogar o jogo sem escolher uma dificuldade, mas, se você ainda conseguir remover o valor de entrada, a Promise cairá em rekect e o forçará a escolher uma dificuldade da mesma maneira.
 
-You shoot with the **space bar** and pause and/or unpause the game with the **Esc** key, your projectile has twice the speed of your enemy and each shot you hit counts off **1** of your opponent's life, you gain **10 points** in your score when defeating an enemy when their life reaches **0**, every **100 points** a sound is played.
+Você atira com a **barra de espaço** e pausa e/ou retoma o jogo com a tecla **Esc**, seu projétil tem o dobro da velocidade do seu inimigo e cada tiro que você acerta conta **1** de vida do seu oponente, você ganha **10 pontos** em sua pontuação ao derrotar um inimigo quando a vida dele chega a **0**. A cada **100 pontos** um som é tocado.
 
-When your base receives damage, an explosion sound is played and it flashes red twice. When your life reaches 15%, another sound is also played and it also flashes red until the game is over.
+Quando sua base recebe dano, um som de explosão é emitido e ela pisca em vermelho duas vezes. Quando sua vida chega a 15%, outro som também é tocado e ele também pisca em vermelho até o jogo terminar.
 
-The movement of your ship is enough, enemies are generated on the screen every **2 seconds**.
+O movimento da sua nave é suficiente, os inimigos são gerados na tela a cada **2 segundos**.
 
-#### Improvements I want to make in the future, such as updates:
+#### Melhorias que quero fazer no futuro, como atualizações:
 
-1. Best score system for each difficulty played;
-2. Changing levels, for every 40 enemies defeated, for example, the difficulty increases;
-3. Give the player a customization menu to change the game's colors and scenery.
+- Melhor sistema de pontuação para cada dificuldade disputada;
+- Mudando de nível, a cada 40 inimigos derrotados, por exemplo, a dificuldade aumenta;
+- Dê ao jogador um menu de personalização para alterar as cores e o cenário do jogo.
