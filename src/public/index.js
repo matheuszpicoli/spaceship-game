@@ -62,21 +62,57 @@ let createEnemyEvent
 let shootEvent
 
 const controls = {
-	"ArrowUp": { vertical: -1, horizontal: 0 },
-	"W": { vertical: -1, horizontal: 0 },
-	"w": { vertical: -1, horizontal: 0 },
+	"ArrowUp": {
+		vertical: -1,
+		horizontal: 0
+	},
+	"W": {
+		vertical: -1,
+		horizontal: 0
+	},
+	"w": {
+		vertical: -1,
+		horizontal: 0
+	},
 
-	"ArrowDown": { vertical: 1, horizontal: 0 },
-	"S": { vertical: 1, horizontal: 0 },
-	"s": { vertical: 1, horizontal: 0 },
+	"ArrowDown": {
+		vertical: 1,
+		horizontal: 0
+	},
+	"S": {
+		vertical: 1,
+		horizontal: 0
+	},
+	"s": {
+		vertical: 1,
+		horizontal: 0
+	},
 
-	"ArrowLeft": { vertical: 0, horizontal: -1 },
-	"A": { vertical: 0, horizontal: -1 },
-	"a": { vertical: 0, horizontal: -1 },
+	"ArrowLeft": {
+		vertical: 0,
+		horizontal: -1
+	},
+	"A": {
+		vertical: 0,
+		horizontal: -1
+	},
+	"a": {
+		vertical: 0,
+		horizontal: -1
+	},
 
-	"ArrowRight": { vertical: 0, horizontal: 1 },
-	"D": { vertical: 0, horizontal: 1 },
-	"d": { vertical: 0, horizontal: 1 }
+	"ArrowRight": {
+		vertical: 0,
+		horizontal: 1
+	},
+	"D": {
+		vertical: 0,
+		horizontal: 1
+	},
+	"d": {
+		vertical: 0,
+		horizontal: 1
+	}
 }
 
 const pressedKey = keyboard => {
@@ -108,14 +144,14 @@ const aircraftMoviment = () => {
 	aircraft.style.top = `${verticalPosition}px`
 
 	const directionsMap = {
-		'1': `rotate(-10deg)`,
-		'0': `rotate(-44deg)`,
-		'-1': `rotate(-69deg)`
+		"1": `rotate(-10deg)`,
+		"0": `rotate(-44deg)`,
+		"-1": `rotate(-69deg)`
 	}
 
 	const direction = Math.sign(horizontalDirection)
 
-	const transformCompatibility = ['transform', 'mozTransform', 'msTransform', 'oTransform', 'webkitTransform']
+	const transformCompatibility = ["transform", "mozTransform", "msTransform", "oTransform", "webkitTransform"]
 
 	for (let index = 0; index < transformCompatibility.length; index++) {
 		aircraft.style[transformCompatibility[index]] = directionsMap[direction]
@@ -362,9 +398,18 @@ const gameOptions = () => {
 	settings.className = "settings"
 
 	const difficulties = [
-		{ label: "Fácil", value: "easy" },
-		{ label: "Normal", value: "normal" },
-		{ label: "Difícil", value: "hard" }
+		{
+			label: "Fácil",
+			value: "easy"
+		},
+		{
+			label: "Normal",
+			value: "normal"
+		},
+		{
+			label: "Difícil",
+			value: "hard"
+		}
 	]
 
 	const difficultyText = {
@@ -384,7 +429,7 @@ const gameOptions = () => {
 		label.textContent = difficulty.label
 		label.htmlFor = radio.id
 
-		const lastDifficulty = localStorage.getItem('selectedDifficulty') || "normal"
+		const lastDifficulty = localStorage.getItem("selectedDifficulty") || "normal"
 		if (difficulty.value === lastDifficulty) radio.checked = true
 
 		const explanatoryText = document.createElement("p")
@@ -405,7 +450,7 @@ const gameOptions = () => {
 		clickSound()
 
 		const selectedDifficulty = document.querySelector("input[name=\"difficulty\"]:checked").value
-		localStorage.setItem('selectedDifficulty', selectedDifficulty)
+		localStorage.setItem("selectedDifficulty", selectedDifficulty)
 
 		switch (selectedDifficulty) {
 			case "easy":
@@ -511,8 +556,8 @@ const play = async () => {
 
 				scenario.appendChild(paused)
 
-				document.addEventListener('keydown', keyboard => {
-					Boolean((keyboard.code === 'Escape' && isGameOver === false)) && (() => {
+				document.addEventListener("keydown", keyboard => {
+					Boolean((keyboard.code === "Escape" && isGameOver === false)) && (() => {
 						if (!isPaused) {
 							isPaused = true
 							pauseGame()
