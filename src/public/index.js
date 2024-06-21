@@ -483,22 +483,26 @@ const gameOptions = () => {
 
 const playGame = () => {
 	(function playerShootingOrNot(yes = "keydown", no = "keyup") {
-		document.addEventListener(yes, keyboard => {
-			if (keyboard.code === "Space") isShooting = true
-		})
+		if (isGameOver === false) {
+			document.addEventListener(yes, keyboard => {
+				if (keyboard.code === "Space") isShooting = true
+			})
 
-		document.addEventListener(no, keyboard => {
-			if (keyboard.code === "Space") {
-				isShooting = false
+			document.addEventListener(no, keyboard => {
+				if (keyboard.code === "Space") {
+					isShooting = false
 
-				const recharge = document.createElement("audio")
-				recharge.setAttribute("src", "/src/audio/recharge.mp3")
-				recharge.currentTime = 0
-				setTimeout(() => recharge.play(), 800)
+					if (!isPaused) {
+						const recharge = document.createElement("audio")
+						recharge.setAttribute("src", "/src/audio/recharge.mp3")
+						recharge.currentTime = 0
+						setTimeout(() => recharge.play(), 800)
 
-				recharge.addEventListener("ended", () => recharge.remove())
-			}
-		})
+						recharge.addEventListener("ended", () => recharge.remove())
+					}
+				}
+			})
+		}
 	})()
 
 	document.addEventListener("keydown", pressedKey)
@@ -557,7 +561,7 @@ const play = async () => {
 				scenario.appendChild(paused)
 
 				document.addEventListener("keydown", keyboard => {
-					Boolean((keyboard.code === "Escape" && isGameOver === false)) && (() => {
+					if (keyboard.code === "Escape" && isGameOver === false) {
 						if (!isPaused) {
 							isPaused = true
 							pauseGame()
@@ -569,7 +573,7 @@ const play = async () => {
 
 							paused.style.visibility = "hidden"
 						}
-					})()
+					}
 				})
 			} else {
 				let error = new Error("Selecione uma dificuldade.")
